@@ -40,8 +40,6 @@
                                                     - vote pour : <td>${ast.voteplus}</td> - vote contre : <td>${ast.vote_moins}</td>
                                                     <td><a onclick="return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));" href ="/supprimerastuce-${ast.idastuce}" >Supprimer</a></td>
                                                 </tr> <br />
-
-                                                
                                             </c:forEach>
                                         </c:if>
                                     </div>

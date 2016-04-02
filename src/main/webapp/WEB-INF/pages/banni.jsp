@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Insert title here</title>
+        <title>You are ban</title>
     </head>
     <body>
         <h1>YOU ARE EXCLUDED. PLEASE ASK TO YOUR ADMINISTRATOR! THANKS</h1>

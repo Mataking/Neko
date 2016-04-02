@@ -31,6 +31,7 @@
                             <li><a href="rare.html">Rares</a></li>
                             <li><a href="communs.html">Communs</a></li></ul></li>
                     <li><a href="astuces.html">Astuces</a></li>  
+                    <li><a href="nouveauchat.html" >Soumettre un nouveau chat</a></li>
                     <li><a href="${pageContext.request.contextPath}/edituser-${pageContext.request.userPrincipal.name}">Edit compte : ${pageContext.request.userPrincipal.name}</a></li>
                     <li><a href="<c:url value="/j_spring_security_logout" />" >Logout</a></li>
                 </ul>
@@ -48,17 +49,18 @@
                                                 <tr>
                                                 <div class="affichageAstuce">
                                                     <div class="headerAstuce">
-                                                    <c:url var="ImgUrl" value="/resource/img/${ast.nomchat}.png" />
-                                                    <td><a href="${ImgUrl}"><img src="${ImgUrl}"></img></a></td>                                                                                                     
-                                                    - commented by <td>${ast.username}</td> - for <td>${ast.nomchat}</td>
+                                                        <c:url var="ImgUrl" value="/resource/img/${ast.nomchat}.png" />
+                                                        <td><a href="${ImgUrl}"><img src="${ImgUrl}"></img></a></td>                                                                                                     
+                                                        - commented by <td>${ast.username}</td> - for <td>${ast.nomchat}</td>
                                                     </div>
-                                                    <textarea rows="5" disabled <td>${ast.commentaire} </textarea></td>
-                                                <h3>Voter pour cette astuce :</h3>
-                                                <form:form commandName="voteplus" action="/astuceplus-${ast.idastuce}">
-                                                        <input type="submit" value="+1" style="color: green"/> ${ast.voteplus}
-                                                    </form:form>	<br>
-                                                    <form:form commandName="votemoins" action="/votemoins-${ast.idastuce}">
-                                                        <input type="submit" value="-1" style="color: red"/> ${ast.vote_moins}
+                                                        <textarea rows="5" disabled style="resize: none"<td>${ast.commentaire} </textarea></td>
+                                                    <h3>Voter pour cette astuce :</h3>
+                                                    <form:form commandName="voteplus" action="/astuceplus-${ast.idastuce}">
+                                                        <input type="submit" value="+" style="color: green; height: 30px; width: 50px"/>
+                                                    </form:form>
+                                                    ${ast.vote}   
+                                                    <form:form commandName="votemoins" action="/astucemoins-${ast.idastuce}">
+                                                        <input type="submit" value="-" style="color: red; height: 30px; width: 50px"/> 
                                                     </form:form>
                                                 </div>
                                                 </tr> <br />

@@ -36,10 +36,9 @@ public class Astuce implements Serializable {
     private String username;
     @Column(name = "commentaire")
     private String commentaire;
-    @Column(name = "vote_plus", length = 50)
-    private Integer voteplus;
-    @Column(name = "vote_moins")
-    private Integer vote_moins;
+    @Column(name = "vote", length = 50)
+    private Integer vote;
+
 
     /**
      *
@@ -54,16 +53,14 @@ public class Astuce implements Serializable {
      * @param nomchat
      * @param username
      * @param commentaire
-     * @param voteplus
-     * @param vote_moins
+     * @param vote
      */
-    public Astuce(String nomchat, String username, String commentaire, Integer voteplus, Integer vote_moins) {
+    public Astuce(String nomchat, String username, String commentaire, Integer vote) {
         super();
         this.nomchat = nomchat;
         this.username = username;
         this.commentaire = commentaire;
-        this.voteplus = voteplus;
-        this.vote_moins = vote_moins;
+        this.vote = vote;
     }
 
     /**
@@ -134,31 +131,15 @@ public class Astuce implements Serializable {
      *
      * @return
      */
-    public Integer getVoteplus() {
-        return voteplus;
+    public Integer getVote() {
+        return vote;
     }
 
     /**
      *
-     * @param voteplus
+     * @param vote
      */
-    public void setVoteplus(Integer voteplus) {
-        this.voteplus = voteplus;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Integer getVote_moins() {
-        return vote_moins;
-    }
-
-    /**
-     *
-     * @param vote_moins
-     */
-    public void setVote_moins(Integer vote_moins) {
-        this.vote_moins = vote_moins;
+    public void setVote(Integer vote) {
+        this.vote = vote;
     }
 }

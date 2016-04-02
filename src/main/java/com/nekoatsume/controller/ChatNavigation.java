@@ -141,7 +141,7 @@ public class ChatNavigation {
         List<Astuce> listAstuce = astuceService.getAllAstuce();
         model.addAttribute("listeastuce", listAstuce);
         Astuce astc = new Astuce();
-        model.addAttribute("voteplus", astc);
+        model.addAttribute("vote", astc);
         return "astuce";
     }
 
@@ -212,7 +212,7 @@ public class ChatNavigation {
         model.addAttribute("listastuce", astuce);
 
         Astuce astc = new Astuce();
-        model.addAttribute("voteplus", astc);
+        model.addAttribute("vote", astc);
 
         return "chats";
     }

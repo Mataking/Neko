@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html dir="ltr" lang="en-US">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <title>Liste des Chats</title>
         <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
 
@@ -25,9 +25,14 @@
             <nav class="nav">
                 <ul class="hmenu">
                     <li><a href="accueil.html" class="active">Accueil</a></li>
-                    <li><a href="chats.html">Chats</a><ul><li><a href="rare.html">Rares</a></li>
-                            <li><a href="communs.html">Communs</a></li></ul></li>
+                    <li><a href="chats.html">Chats</a>
+                        <ul>
+                            <li><a href="rare.html">Rares</a></li>
+                            <li><a href="communs.html">Communs</a></li>
+                        </ul>
+                    </li>
                     <li><a href="astuces.html">Astuces</a></li>  
+                    <li><a href="nouveauchat.html" >Soumettre un nouveau chat</a></li>
                     <li><a href="${pageContext.request.contextPath}/edituser-${pageContext.request.userPrincipal.name}">Edit compte : ${pageContext.request.userPrincipal.name}</a></li>
                     <li><a href="<c:url value="/j_spring_security_logout" />" >Logout</a></li>
                 </ul>
@@ -158,10 +163,11 @@
                                                     <h3>Voter pour cette astuce :</h3>
 
                                                     <form:form commandName="voteplus" action="/voteplus-${ast.idastuce}">
-                                                        <input type="submit" value="+1" style="color: green"/> ${ast.voteplus}
-                                                    </form:form>	<br>
+                                                        <input type="submit" value="+" style="color: green; height: 30px; width: 50px"/>
+                                                    </form:form>
+                                                    ${ast.vote}   
                                                     <form:form commandName="votemoins" action="/votemoins-${ast.idastuce}">
-                                                        <input type="submit" value="-1" style="color: red"/> ${ast.vote_moins}
+                                                        <input type="submit" value="-" style="color: red; height: 30px; width: 50px"/> 
                                                     </form:form>
                                                     </tr>
 

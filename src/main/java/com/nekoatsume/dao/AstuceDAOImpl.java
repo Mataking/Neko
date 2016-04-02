@@ -90,8 +90,7 @@ public class AstuceDAOImpl implements AstuceDAO {
         Astuce existingAstuce = (Astuce) openSession().get(Astuce.class, astuce.getIdastuce());
         existingAstuce.setNomchat(astuce.getNomchat());
         existingAstuce.setUsername(astuce.getUsername());
-        existingAstuce.setVoteplus(astuce.getVoteplus() + 1);
-        existingAstuce.setVote_moins(astuce.getVote_moins());
+        existingAstuce.setVote(astuce.getVote() + 1);
         openSession().save(existingAstuce);
     }
 
@@ -106,8 +105,7 @@ public class AstuceDAOImpl implements AstuceDAO {
         Astuce existingAstuce = (Astuce) openSession().get(Astuce.class, astuce.getIdastuce());
         existingAstuce.setNomchat(astuce.getNomchat());
         existingAstuce.setUsername(astuce.getUsername());
-        existingAstuce.setVoteplus(astuce.getVoteplus());
-        existingAstuce.setVote_moins(astuce.getVote_moins() + 1);
+        existingAstuce.setVote(astuce.getVote() - 1);
         openSession().save(existingAstuce);
     }
 

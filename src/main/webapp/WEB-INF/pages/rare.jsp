@@ -9,11 +9,8 @@
         <title>Liste des chats</title>
         <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
 
-        <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link rel="stylesheet" href="/resource/style/style.css" media="screen">
-        <!--[if lte IE 7]><link rel="stylesheet" href="style.ie7.css" media="screen" /><![endif]-->
         <link rel="stylesheet" href="/resource/style/style.responsive.css" media="all">
-
 
         <script src="/resource/style/jquery.js"></script>
         <script src="/resource/style/script.js"></script>
@@ -35,6 +32,7 @@
                         </ul>
                     </li>
                     <li><a href="astuces.html">Astuces</a></li>  
+                    <li><a href="nouveauchat.html" >Soumettre un nouveau chat</a></li>
                     <li><a href="${pageContext.request.contextPath}/edituser-${pageContext.request.userPrincipal.name}">Edit compte : ${pageContext.request.userPrincipal.name}</a></li>
                     <li><a href="<c:url value="/j_spring_security_logout" />" >Logout</a></li>
                 </ul>

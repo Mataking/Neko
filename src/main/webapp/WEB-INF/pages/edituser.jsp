@@ -35,6 +35,7 @@
                         </ul>
                     </li>
                     <li><a href="astuces">Astuces</a></li>  
+                    <li><a href="nouveauchat.html" >Soumettre un nouveau chat</a></li>
                     <li><a href="${pageContext.request.contextPath}/edituser-${pageContext.request.userPrincipal.name}">Edit compte : ${pageContext.request.userPrincipal.name}</a></li>
                     <li><a href="<c:url value="/j_spring_security_logout" />" >Logout</a></li>
                 </ul>

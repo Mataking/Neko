@@ -1,5 +1,5 @@
 projectKey=NA:sprsecneko
 serverUrl=http://localhost:9000
 dashboardUrl=http://localhost:9000/dashboard/index/NA:sprsecneko
-ceTaskId=AVPWFMT0jbCPAclVch0x
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AVPWFMT0jbCPAclVch0x
+ceTaskId=AVPWRiXrjbCPAclVch01
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVPWRiXrjbCPAclVch01
