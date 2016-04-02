@@ -12,6 +12,10 @@ import com.nekoatsume.model.User;
 import com.nekoatsume.service.UserService;
 //c'est le controlleur pour la connexion de l'utilisateur
 
+/**
+ *
+ * @author Mata
+ */
 @Controller
 public class SecurityNavigation {
 
@@ -19,6 +23,11 @@ public class SecurityNavigation {
     UserService userService;
 
     //permet de se connecter
+
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = {"/", "/user-login.html"}, method = RequestMethod.GET)
     public ModelAndView loginForm() {
 
@@ -27,6 +36,13 @@ public class SecurityNavigation {
     }
 
     //récupère les données de l'utilisateur
+
+    /**
+     *
+     * @param login
+     * @param mod
+     * @return
+     */
     @RequestMapping(value = {"/user-login"}, method = RequestMethod.POST)
     public String loginOk(@RequestParam("login") String login, ModelMap mod) {
         User existinguser = userService.getUser(login);
@@ -37,12 +53,21 @@ public class SecurityNavigation {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = "/banni", method = RequestMethod.GET)
     public ModelAndView userbanni() {
         return new ModelAndView("banni");
     }
 
     //dans le cas d'une erreur
+
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = "/error-login", method = RequestMethod.GET)
     public ModelAndView invalidLogin() {
         ModelAndView modelAndView = new ModelAndView("login-form");

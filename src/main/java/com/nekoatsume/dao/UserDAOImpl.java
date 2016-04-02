@@ -13,6 +13,11 @@ import com.nekoatsume.model.User;
 import com.nekoatsume.model.UserRole;
 
 //implementation de UserDAO
+
+/**
+ *
+ * @author Mata
+ */
 @Repository
 public class UserDAOImpl implements UserDAO {
 
@@ -25,6 +30,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     //récuperer un utilisateur par son "id"
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public User getUserById(int id) {
@@ -39,6 +50,11 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public UserRole getByUserId(int id) {
         Query query = openSession().createQuery("from UserRole where userid =" + id);
@@ -47,6 +63,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     //récuperer un utilisateur par son "nom"
+
+    /**
+     *
+     * @param login
+     * @return
+     */
     @SuppressWarnings("unchecked")
     public User getUser(String login) {
         List<User> userList = new ArrayList<User>();
@@ -61,11 +83,21 @@ public class UserDAOImpl implements UserDAO {
     }
 
     //créer un nouvel utilisateur
+
+    /**
+     *
+     * @param user
+     */
     public void add(User user) {
         openSession().persist(user);
     }
 
     //modifier un utilisateur
+
+    /**
+     *
+     * @param user
+     */
     @Override
     public void edit(User user) {
         User existingUser = (User) openSession().get(User.class, user.getId());
@@ -77,6 +109,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     //récuperer la liste d'un utilisateur
+
+    /**
+     *
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<User> listeUser() {
@@ -85,6 +122,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     //supprimer un utilisateur
+
+    /**
+     *
+     * @param user
+     */
     @Override
     public void bannirUser(User user) {
 
@@ -96,6 +138,10 @@ public class UserDAOImpl implements UserDAO {
         openSession().save(exist);
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void revaliderUser(User user) {
 
@@ -107,6 +153,11 @@ public class UserDAOImpl implements UserDAO {
         openSession().save(exist);
     }
 
+    /**
+     *
+     * @param mail
+     * @return
+     */
     @Override
     public User findByEmail(String mail) {
 

@@ -15,6 +15,10 @@ import com.nekoatsume.model.User;
 import com.nekoatsume.model.UserRole;
 //déclaration du webservice userService, lié avec les DAO
 
+/**
+ *
+ * @author Mata
+ */
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -25,16 +29,29 @@ public class UserServiceImpl implements UserService {
     @Resource(name = "sessionFactory")
     private SessionFactory sessionFactory;
 
+    /**
+     *
+     * @param login
+     * @return
+     */
     @Override
     public User getUser(String login) {
         return userDAO.getUser(login);
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void addUser(User user) {
         userDAO.add(user);
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void editUser(User user) {
         Session session = sessionFactory.getCurrentSession();
@@ -44,11 +61,20 @@ public class UserServiceImpl implements UserService {
         session.save(exist);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public User getUserById(int id) {
         return userDAO.getUserById(id);
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void updateUser(User user) {
         User entity = userDAO.getUserById(user.getId());
@@ -58,26 +84,48 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<User> listeUser() {
         return userDAO.listeUser();
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void bannirUser(User user) {
         userDAO.bannirUser(user);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public UserRole getByUserId(int id) {
         return userDAO.getByUserId(id);
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void revaliderUser(User user) {
         userDAO.revaliderUser(user);
     }
 
+    /**
+     *
+     * @param mail
+     * @return
+     */
     @Override
     public User findByEmail(String mail) {
         return userDAO.findByEmail(mail);

@@ -13,6 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Mata
+ */
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
@@ -40,10 +44,18 @@ public class User implements Serializable {
     @Column(name = "banni")
     private Integer banni;
 
+    /**
+     *
+     * @return
+     */
     public Integer getBanni() {
         return banni;
     }
 
+    /**
+     *
+     * @param banni
+     */
     public void setBanni(Integer banni) {
         this.banni = banni;
     }
@@ -56,42 +68,82 @@ public class User implements Serializable {
                 @JoinColumn(name = "role_id", referencedColumnName = "id")})
     private Role role;
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     *
+     * @param login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public Role getRole() {
         return role;
     }
 
+    /**
+     *
+     * @param role
+     */
     public void setRole(Role role) {
         this.role = role;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getadresse_mail() {
         return adresse_mail;
     }
 
+    /**
+     *
+     * @param adresse_mail
+     */
     public void setadresse_mail(String adresse_mail) {
         this.adresse_mail = adresse_mail;
     }

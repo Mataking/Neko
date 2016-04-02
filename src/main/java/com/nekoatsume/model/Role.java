@@ -16,6 +16,12 @@ import javax.persistence.Table;
 /*
  Le model pour verifier le rôle d'un utilisateur
  */
+
+/**
+ *
+ * @author Mata
+ */
+
 @Entity
 @Table(name = "roles")
 public class Role implements Serializable {
@@ -35,26 +41,50 @@ public class Role implements Serializable {
                 @JoinColumn(name = "user_id", referencedColumnName = "id")})
     private Set<User> userRoles;
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRole() {
         return role;
     }
 
+    /**
+     *
+     * @param role
+     */
     public void setRole(String role) {
         this.role = role;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set<User> getUserRoles() {
         return userRoles;
     }
 
+    /**
+     *
+     * @param userRoles
+     */
     public void setUserRoles(Set<User> userRoles) {
         this.userRoles = userRoles;
     }

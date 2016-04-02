@@ -8,6 +8,10 @@ import com.nekoatsume.dao.RoleDAO;
 import com.nekoatsume.model.Role;
 //déclaration du webservice, lié avec RoleDAO
 
+/**
+ *
+ * @author Mata
+ */
 @Service
 @Transactional
 public class RoleServiceImpl implements RoleService {
@@ -15,6 +19,11 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleDAO roleDAO;
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Role getRole(int id) {
         return roleDAO.getRole(id);
     }

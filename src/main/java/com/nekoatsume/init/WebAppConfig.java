@@ -29,6 +29,10 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import com.nekoatsume.service.ChatService;
 import com.nekoatsume.service.ChatServiceImpl;
 
+/**
+ *
+ * @author Mata
+ */
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -49,6 +53,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     @Autowired
     private Environment env;
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -61,6 +69,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         return dataSource;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
@@ -77,6 +89,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         return properties;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
@@ -84,6 +100,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         return transactionManager;
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
@@ -94,10 +114,18 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    /**
+     *
+     * @param registry
+     */
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resource/**").addResourceLocations("/resource/");
     }
 
+    /**
+     *
+     * @return
+     */
     @Bean
     public ChatService getChatService() {
         ChatService chatService = new ChatServiceImpl();

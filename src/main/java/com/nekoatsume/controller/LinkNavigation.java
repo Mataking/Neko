@@ -20,20 +20,38 @@ import com.nekoatsume.model.User;
 import com.nekoatsume.model.UserRole;
 import com.nekoatsume.service.UserService;
 
+/**
+ *
+ * @author Mata
+ */
 @Controller
 public class LinkNavigation {
 
+    /**
+     *
+     */
     protected static Logger logger = Logger.getLogger("controller");
 
     @Autowired
     UserService userService;
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView indexPage() {
         return new ModelAndView("accueil");
     }
 
     //permet d'aller à la page d'acceuil
+
+    /**
+     *
+     * @param model
+     * @param principal
+     * @return
+     */
     @RequestMapping(value = "/accueil", method = RequestMethod.GET)
     public String ModerationPage(Model model, Principal principal) {
         model.addAttribute("title", "Moderation Page");
@@ -44,11 +62,21 @@ public class LinkNavigation {
     }
 
     //-----------------connection de l'administrateur
+
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public ModelAndView firstAdminPage() {
         return new ModelAndView("admin-first");
     }
 
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/admin-users", method = RequestMethod.GET)
     public String listUser(Model model) {
         List<User> users = userService.listeUser();
@@ -58,6 +86,12 @@ public class LinkNavigation {
     //----------------fin pour la connection de l'adminisatrateur
 
     //********ADD USER
+
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = {"/newuser"}, method = RequestMethod.GET)
     public String newUser(ModelMap model) {
         User user = new User();
@@ -66,6 +100,13 @@ public class LinkNavigation {
         return "registration";
     }
 
+    /**
+     *
+     * @param user
+     * @param result
+     * @param model
+     * @return
+     */
     @RequestMapping(value = {"/newuser"}, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
             ModelMap model) {
@@ -93,6 +134,13 @@ public class LinkNavigation {
     //*****END ADD USER
 
     //---------EDIT USER
+
+    /**
+     *
+     * @param login
+     * @param model
+     * @return
+     */
     @RequestMapping(value = {"/edituser-{login}"}, method = RequestMethod.GET)
     public String getEdit(@PathVariable String login, ModelMap model) {
         logger.debug("Received request to show edit page");
@@ -105,6 +153,12 @@ public class LinkNavigation {
         return "edituser";
     }
 
+    /**
+     *
+     * @param model
+     * @param principal
+     * @return
+     */
     @RequestMapping(value = {"/edituser-{login}"}, method = RequestMethod.POST)
     public String postEdit(Model model, Principal principal) {
         String userName = principal.getName();
@@ -118,6 +172,13 @@ public class LinkNavigation {
     //------------END EDIT USER
 
     //méthode pour bannir des utilisateurs
+
+    /**
+     *
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/bannir-{id}", method = RequestMethod.GET)
     public String removeUser(@PathVariable("id") int id, Model model) {
         User user = userService.getUserById(id);
@@ -128,6 +189,12 @@ public class LinkNavigation {
         return "admin-users";
     }
 
+    /**
+     *
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/revalider-{id}", method = RequestMethod.GET)
     public String revalidateUser(@PathVariable("id") int id, Model model) {
         User user = userService.getUserById(id);

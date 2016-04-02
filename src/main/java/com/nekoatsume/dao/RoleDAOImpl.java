@@ -8,6 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.nekoatsume.model.Role;
 
 //implementation de RoleDAO
+
+/**
+ *
+ * @author Mata
+ */
 @Repository
 public class RoleDAOImpl implements RoleDAO {
 
@@ -19,6 +24,12 @@ public class RoleDAOImpl implements RoleDAO {
     }
     
     //methode pour récuperer le role utilisateur
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Role getRole(int id) {
         Role role = (Role) getCurrentSession().load(Role.class, id);
         return role;

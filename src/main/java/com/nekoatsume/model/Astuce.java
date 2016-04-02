@@ -10,6 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Mata
+ */
 @Entity
 @Table(name = "astuce")
 public class Astuce implements Serializable {
@@ -37,11 +41,22 @@ public class Astuce implements Serializable {
     @Column(name = "vote_moins")
     private Integer vote_moins;
 
+    /**
+     *
+     */
     public Astuce() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+    /**
+     *
+     * @param nomchat
+     * @param username
+     * @param commentaire
+     * @param voteplus
+     * @param vote_moins
+     */
     public Astuce(String nomchat, String username, String commentaire, Integer voteplus, Integer vote_moins) {
         super();
         this.nomchat = nomchat;
@@ -51,50 +66,98 @@ public class Astuce implements Serializable {
         this.vote_moins = vote_moins;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdastuce() {
         return idastuce;
     }
 
+    /**
+     *
+     * @param idastuce
+     */
     public void setIdastuce(Integer idastuce) {
         this.idastuce = idastuce;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomchat() {
         return nomchat;
     }
 
+    /**
+     *
+     * @param nomchat
+     */
     public void setNomchat(String nomchat) {
         this.nomchat = nomchat;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCommentaire() {
         return commentaire;
     }
 
+    /**
+     *
+     * @param commentaire
+     */
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getVoteplus() {
         return voteplus;
     }
 
+    /**
+     *
+     * @param voteplus
+     */
     public void setVoteplus(Integer voteplus) {
         this.voteplus = voteplus;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getVote_moins() {
         return vote_moins;
     }
 
+    /**
+     *
+     * @param vote_moins
+     */
     public void setVote_moins(Integer vote_moins) {
         this.vote_moins = vote_moins;
     }

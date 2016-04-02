@@ -10,6 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Mata
+ */
 @Entity
 @Table(name = "ajoutastuce")
 public class AjoutAstuce implements Serializable {
@@ -33,9 +37,18 @@ public class AjoutAstuce implements Serializable {
     @Column(name = "commentaire")
     private String commentaire;
 
+    /**
+     *
+     */
     public AjoutAstuce() {
     }
 
+    /**
+     *
+     * @param chatnom
+     * @param nameuser
+     * @param commentaire
+     */
     public AjoutAstuce(String chatnom, String nameuser, String commentaire) {
         super();
         this.chatnom = chatnom;
@@ -43,26 +56,50 @@ public class AjoutAstuce implements Serializable {
         this.commentaire = commentaire;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getchatnom() {
         return chatnom;
     }
 
+    /**
+     *
+     * @param chatnom
+     */
     public void setchatnom(String chatnom) {
         this.chatnom = chatnom;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getnameuser() {
         return nameuser;
     }
 
+    /**
+     *
+     * @param nameuser
+     */
     public void setnameuser(String nameuser) {
         this.nameuser = nameuser;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCommentaire() {
         return commentaire;
     }
 
+    /**
+     *
+     * @param commentaire
+     */
     public void setCommentaire(String commentaire) {
         this.commentaire = commentaire;
     }

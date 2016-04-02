@@ -13,6 +13,11 @@ import com.nekoatsume.model.User;
 import com.nekoatsume.model.UserRole;
 
 //implementation de ChatDAO
+
+/**
+ *
+ * @author Mata
+ */
 @Repository
 public class ChatDAOimpl implements ChatDAO {
 
@@ -24,6 +29,11 @@ public class ChatDAOimpl implements ChatDAO {
     }
 
     //récuperer la liste de tous les chats
+
+    /**
+     *
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Chat> listeChat() {
@@ -32,6 +42,12 @@ public class ChatDAOimpl implements ChatDAO {
     }
 
     //methode pour la recherche par nom
+
+    /**
+     *
+     * @param nom
+     * @return
+     */
     @Override
     public Chat rechercheParNom(String nom) {
 
@@ -42,6 +58,11 @@ public class ChatDAOimpl implements ChatDAO {
     }
 
     //récuperer les chats rares
+
+    /**
+     *
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Chat> listeChatRare() {
@@ -50,6 +71,11 @@ public class ChatDAOimpl implements ChatDAO {
     }
 
     //récuperer les chat communs
+
+    /**
+     *
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Chat> listeChatCommun() {
@@ -57,11 +83,19 @@ public class ChatDAOimpl implements ChatDAO {
         return query.list();
     }
 
+    /**
+     *
+     * @param chat
+     */
     @Override
     public void add(Chat chat) {
         openSession().persist(chat);
     }
 
+    /**
+     *
+     * @param chat
+     */
     @Override
     public void validerChat(Chat chat) {
         Chat chatexist = (Chat) openSession().get(Chat.class, chat.getIdChat());
@@ -76,6 +110,11 @@ public class ChatDAOimpl implements ChatDAO {
         openSession().save(chatexist);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Chat getChatById(int id) {
         Query query = openSession().createQuery("from Chat where idChat =" + id);
@@ -83,6 +122,10 @@ public class ChatDAOimpl implements ChatDAO {
         return (Chat) query.uniqueResult();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Chat> listeChatAdmin() {
         Query query = openSession().createQuery("FROM Chat");

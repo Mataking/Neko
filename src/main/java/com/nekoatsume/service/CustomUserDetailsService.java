@@ -17,6 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.nekoatsume.dao.UserDAO;
 
 //c'est le service qui permet de gérer la sécurité des utilisateurs
+
+/**
+ *
+ * @author Mata
+ */
 @Service
 @Transactional(readOnly = true)
 public class CustomUserDetailsService implements UserDetailsService {
@@ -24,6 +29,12 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserDAO userDAO;
 
+    /**
+     *
+     * @param login
+     * @return
+     * @throws UsernameNotFoundException
+     */
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 
         com.nekoatsume.model.User domainUser = userDAO.getUser(login);
@@ -44,11 +55,21 @@ public class CustomUserDetailsService implements UserDetailsService {
         );
     }
 
+    /**
+     *
+     * @param role
+     * @return
+     */
     public Collection<? extends GrantedAuthority> getAuthorities(Integer role) {
         List<GrantedAuthority> authList = getGrantedAuthorities(getRoles(role));
         return authList;
     }
 
+    /**
+     *
+     * @param role
+     * @return
+     */
     public List<String> getRoles(Integer role) {
         List<String> roles = new ArrayList<String>();
 
@@ -63,6 +84,11 @@ public class CustomUserDetailsService implements UserDetailsService {
         return roles;
     }
 
+    /**
+     *
+     * @param roles
+     * @return
+     */
     public static List<GrantedAuthority> getGrantedAuthorities(List<String> roles) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 

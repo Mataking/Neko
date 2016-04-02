@@ -12,6 +12,11 @@ import com.nekoatsume.model.AjoutAstuce;
 import com.nekoatsume.model.Astuce;
 
 //implementation de AstuceDAO
+
+/**
+ *
+ * @author Mata
+ */
 @Repository
 public class AstuceDAOImpl implements AstuceDAO {
 
@@ -23,6 +28,11 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //récupère la liste des astuces poser
+
+    /**
+     *
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Astuce> getAllAstuce() {
@@ -31,6 +41,12 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //récupérer les astuces par id
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Astuce getAstuceById(int id) {
         Query query = openSession().createQuery("from Astuce where idastuce=" + id);
@@ -38,6 +54,12 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //récuperer les astuces par chat
+
+    /**
+     *
+     * @param chatname
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public List<Astuce> getAstuce(String chatname) {
@@ -46,6 +68,11 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //ajouter une astuce
+
+    /**
+     *
+     * @param astuce
+     */
     @Override
     public void addAstuce(AjoutAstuce astuce) {
         System.out.println("astuce ajouté");
@@ -53,6 +80,11 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //methode pour voter plus une astuce
+
+    /**
+     *
+     * @param astuce
+     */
     @Override
     public void addPlus(Astuce astuce) {
         Astuce existingAstuce = (Astuce) openSession().get(Astuce.class, astuce.getIdastuce());
@@ -64,6 +96,11 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //methode pour voter contre
+
+    /**
+     *
+     * @param astuce
+     */
     @Override
     public void addMoins(Astuce astuce) {
         Astuce existingAstuce = (Astuce) openSession().get(Astuce.class, astuce.getIdastuce());
@@ -75,6 +112,11 @@ public class AstuceDAOImpl implements AstuceDAO {
     }
 
     //supprimer une astuce
+
+    /**
+     *
+     * @param id
+     */
     @Override
     public void deleteAstuce(int id) {
         Query query = openSession().createQuery("FROM Astuce where idastuce=" + id);

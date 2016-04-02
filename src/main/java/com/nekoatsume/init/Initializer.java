@@ -9,8 +9,18 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+/**
+ *
+ * @author Mata
+ */
 public class Initializer implements WebApplicationInitializer {
 //C'est la configuration qui permet d'intercepter les différents vues, et de deployer l'application à l'adresse "/"
+
+    /**
+     *
+     * @param servletContext
+     * @throws ServletException
+     */
 
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
